@@ -2,9 +2,6 @@
 const fakeData = require('../faker/fakeData.js');
 
 const roomsData = fakeData.randomRooms;
-
-exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  return knex('rooms').del()
-    .then(() => knex('rooms').insert(roomsData));
-};
+exports.seed = knex => knex('reviews').del()
+  .then(() => knex('rooms').del())
+  .then(() => knex('rooms').insert(roomsData));

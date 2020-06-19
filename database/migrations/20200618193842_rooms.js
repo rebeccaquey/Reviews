@@ -12,9 +12,9 @@ exports.up = function (knex) {
     .createTable('reviews', (table) => {
       table.increments('_id').primary();
       table.string('name');
-      table.string('userImageUrl');
+      table.string('userImageUrl', 500);
       table.string('createdAt');
-      table.string('content');
+      table.string('content', 1000);
       table.integer('overall');
       table.integer('cleanliness');
       table.integer('communication');

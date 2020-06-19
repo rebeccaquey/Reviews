@@ -18,10 +18,10 @@ const getRandomReviews = (number, rooms) => {
     // eslint-disable-next-line no-underscore-dangle
     const randomRoomId = rooms[Math.floor(Math.random() * roomLen)]._roomId;
     const review = {
-      name: faker.name.findName(),
-      userImageUrl: getRandomUrl(),
+      name: faker.name.findName().toString(),
+      userImageUrl: getRandomUrl().toString(),
       createdAt: faker.date.between('2015-01-01', '2020-06-15').toString(),
-      content: getRandomText(),
+      content: getRandomText().toString(),
       overall: getRandomRating(),
       cleanliness: getRandomRating(),
       communication: getRandomRating(),
@@ -63,3 +63,5 @@ const randomReviews = getRandomReviews(2000, randomRooms);
 module.exports = {
   getRandomRooms, getRandomReviews, randomRooms, randomReviews, getAvg,
 };
+
+console.log(typeof randomReviews[0].overall);
