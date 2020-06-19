@@ -33,6 +33,16 @@ const getRandomReviews = () => {
   return reviews;
 };
 
+const getAvg = (reviews, property) => {
+  let score = 0;
+  reviews.forEach((element) => {
+    score += element[property];
+  });
+  score /= reviews.length;
+  
+  return score.toPrecision(2);
+};
+
 const getRandomRooms = (number) => {
   number = number || 1;
   const rooms = [];
@@ -40,6 +50,13 @@ const getRandomRooms = (number) => {
     const randomReviews = getRandomReviews();
     const room = {
       _roomId: (i + 1).toString().padStart(9, 0),
+      overall: getAvg(randomReviews, 'overall'),
+      cleanliness: getAvg(randomReviews, 'cleanliness'),
+      communication: getAvg(randomReviews, 'communication'),
+      checkin: getAvg(randomReviews, 'checkin'),
+      accuracy: getAvg(randomReviews, 'accuracy'),
+      location: getAvg(randomReviews, 'location'),
+      value: getAvg(randomReviews, 'value'),
       reviews: randomReviews,
     };
     rooms.push(room);
@@ -47,7 +64,33 @@ const getRandomRooms = (number) => {
   return rooms;
 };
 
-
+const randomReviews = getRandomReviews();
 const myRooms = getRandomRooms(100);
-
+const overallScore = getAvg(randomReviews, 'overall')
 console.log(myRooms[0]);
+
+module.exports = { getRandomRooms };
+
+
+// {
+//   _roomId: string,
+// overall: number,
+// cleanliness: number,
+// communication: number,
+// checkin: number,
+// accuracy: number,
+// location: number,
+// value: number,
+//   reviews: [ {name: string,
+//     userImageUrl: string,
+//     createdAt: string,
+//     content: string,
+//     overall: number,
+//     cleanliness: number,
+//     communication: number,
+//     checkin: number,
+//     accuracy: number,
+//     location: number,
+//     value: number}, ...
+//   ]
+// }

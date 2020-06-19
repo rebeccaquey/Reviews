@@ -7,7 +7,7 @@
     "start": "nodemon ./server/index.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -d --watch",
-    "seed": "node ./seed/fakeData.js"
+    "seed": "node .database/seed/fakeData.js"
   },
   "repository": {
     "type": "git",
