@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/rooms/:roomId/reviews', (req, res) => {
   console.log('EXPRESS GET SUCCESS');
   res.send('EXPRESS NODE GET SUCCESS');
-})
+});
 
 app.listen(port, () => {
   console.log(`Listening at ${url}`);
