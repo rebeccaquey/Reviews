@@ -6,14 +6,14 @@ exports.up = function (knex) {
     .dropTableIfExists('rooms')
     .dropTableIfExists('reviews')   
     .createTable('rooms', (table) => {
-      table.increments('_id').primary();
-      table.string('_roomId');
+      table.increments('_id').primary().unsigned();
+      table.string('_room_id');
     })
     .createTable('reviews', (table) => {
-      table.increments('_id').primary();
+      table.increments('_id').primary().unsigned();
       table.string('name');
-      table.string('userImageUrl', 500);
-      table.string('createdAt');
+      table.string('image_url', 500);
+      table.string('created_at');
       table.string('content', 1000);
       table.integer('overall');
       table.integer('cleanliness');
@@ -22,7 +22,12 @@ exports.up = function (knex) {
       table.integer('accuracy');
       table.integer('location');
       table.integer('value');
-      table.integer('roomId').references('_id').inTable('rooms');
+      table.integer('room_id')
+        .unsigned()
+        .references('_id')
+        .inTable('rooms')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE');
     });
 };
 

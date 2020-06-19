@@ -16,11 +16,11 @@ const getRandomReviews = (number, rooms) => {
   const roomLen = rooms.length;
   for (let i = 0; i < number; i++) {
     // eslint-disable-next-line no-underscore-dangle
-    const randomRoomId = rooms[Math.floor(Math.random() * roomLen)]._roomId;
+    const randomRoomId = rooms[Math.floor(Math.random() * roomLen)]._room_id;
     const review = {
       name: faker.name.findName().toString(),
-      userImageUrl: getRandomUrl().toString(),
-      createdAt: faker.date.between('2015-01-01', '2020-06-15').toString(),
+      image_url: getRandomUrl().toString(),
+      created_at: faker.date.between('2015-01-01', '2020-06-15').toString(),
       content: getRandomText().toString(),
       overall: getRandomRating(),
       cleanliness: getRandomRating(),
@@ -29,7 +29,7 @@ const getRandomReviews = (number, rooms) => {
       accuracy: getRandomRating(),
       location: getRandomRating(),
       value: getRandomRating(),
-      roomId: randomRoomId,
+      room_id: randomRoomId,
     };
     reviews.push(review);
   }
@@ -50,7 +50,7 @@ const getRandomRooms = (number) => {
   const rooms = [];
   for (let i = 0; i < number; i += 1) {
     const room = {
-      _roomId: (i + 1).toString().padStart(9, 0),
+      _room_id: (i + 1).toString().padStart(9, 0),
     };
     rooms.push(room);
   }
