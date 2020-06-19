@@ -7,8 +7,8 @@
     "start": "nodemon ./server/index.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -d --watch",
-    "seed": "node ./seed/fakeData.js"
-  },
+    "knex-seed": "knex migrate:rollback &&  npx knex migrate:latest && knex seed:run"
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GHesericsu/Reviews.git"

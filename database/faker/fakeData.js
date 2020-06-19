@@ -10,16 +10,18 @@ const getRandomText = () => faker.lorem.sentences(Math.floor(Math.random() * (11
 
 const getRandomRating = () => Math.floor(Math.random() * (6 - 2) + 2);
 
-const getRandomReviews = () => {
+const getRandomReviews = (number, rooms) => {
   const reviews = [];
-  const randomN = Math.floor(Math.random() * (16 - 6) + 6);
-
-  for (let i = 0; i < randomN; i++) {
+  // const randomN = Math.floor(Math.random() * (16 - 6) + 6);
+  const roomLen = rooms.length;
+  for (let i = 0; i < number; i++) {
+    // eslint-disable-next-line no-underscore-dangle
+    const randomRoomId = rooms[Math.floor(Math.random() * roomLen)]._roomId;
     const review = {
-      name: faker.name.findName(),
-      userImageUrl: getRandomUrl(),
-      createdAt: faker.date.between('2015-01-01', '2020-06-15'),
-      content: getRandomText(),
+      name: faker.name.findName().toString(),
+      userImageUrl: getRandomUrl().toString(),
+      createdAt: faker.date.between('2015-01-01', '2020-06-15').toString(),
+      content: getRandomText().toString(),
       overall: getRandomRating(),
       cleanliness: getRandomRating(),
       communication: getRandomRating(),
@@ -27,27 +29,39 @@ const getRandomReviews = () => {
       accuracy: getRandomRating(),
       location: getRandomRating(),
       value: getRandomRating(),
+      roomId: randomRoomId,
     };
     reviews.push(review);
   }
   return reviews;
 };
 
+const getAvg = (reviews, property) => {
+  let score = 0;
+  reviews.forEach((element) => {
+    score += element[property];
+  });
+  score /= reviews.length;
+  return score.toPrecision(2);
+};
+
 const getRandomRooms = (number) => {
   number = number || 1;
   const rooms = [];
   for (let i = 0; i < number; i += 1) {
-    const randomReviews = getRandomReviews();
     const room = {
       _roomId: (i + 1).toString().padStart(9, 0),
-      reviews: randomReviews,
     };
     rooms.push(room);
   }
   return rooms;
 };
 
+const randomRooms = getRandomRooms(100);
+const randomReviews = getRandomReviews(3000, randomRooms);
 
-const myRooms = getRandomRooms(100);
+module.exports = {
+  getRandomRooms, getRandomReviews, randomRooms, randomReviews, getAvg,
+};
 
-console.log(myRooms[0]);
+console.log(typeof randomReviews[0].overall);
