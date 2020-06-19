@@ -10,15 +10,17 @@ const getRandomText = () => faker.lorem.sentences(Math.floor(Math.random() * (11
 
 const getRandomRating = () => Math.floor(Math.random() * (6 - 2) + 2);
 
-const getRandomReviews = () => {
+const getRandomReviews = (number, rooms) => {
   const reviews = [];
-  const randomN = Math.floor(Math.random() * (16 - 6) + 6);
-
-  for (let i = 0; i < randomN; i++) {
+  // const randomN = Math.floor(Math.random() * (16 - 6) + 6);
+  const roomLen = rooms.length;
+  for (let i = 0; i < number; i++) {
+    // eslint-disable-next-line no-underscore-dangle
+    const randomRoomId = rooms[Math.floor(Math.random() * roomLen)]._roomId;
     const review = {
       name: faker.name.findName(),
       userImageUrl: getRandomUrl(),
-      createdAt: faker.date.between('2015-01-01', '2020-06-15'),
+      createdAt: faker.date.between('2015-01-01', '2020-06-15').toString(),
       content: getRandomText(),
       overall: getRandomRating(),
       cleanliness: getRandomRating(),
@@ -27,6 +29,7 @@ const getRandomReviews = () => {
       accuracy: getRandomRating(),
       location: getRandomRating(),
       value: getRandomRating(),
+      roomId: randomRoomId,
     };
     reviews.push(review);
   }
@@ -39,7 +42,6 @@ const getAvg = (reviews, property) => {
     score += element[property];
   });
   score /= reviews.length;
-  
   return score.toPrecision(2);
 };
 
@@ -47,50 +49,17 @@ const getRandomRooms = (number) => {
   number = number || 1;
   const rooms = [];
   for (let i = 0; i < number; i += 1) {
-    const randomReviews = getRandomReviews();
     const room = {
       _roomId: (i + 1).toString().padStart(9, 0),
-      overall: getAvg(randomReviews, 'overall'),
-      cleanliness: getAvg(randomReviews, 'cleanliness'),
-      communication: getAvg(randomReviews, 'communication'),
-      checkin: getAvg(randomReviews, 'checkin'),
-      accuracy: getAvg(randomReviews, 'accuracy'),
-      location: getAvg(randomReviews, 'location'),
-      value: getAvg(randomReviews, 'value'),
-      reviews: randomReviews,
     };
     rooms.push(room);
   }
   return rooms;
 };
 
-const randomReviews = getRandomReviews();
-const myRooms = getRandomRooms(100);
-const overallScore = getAvg(randomReviews, 'overall')
-console.log(myRooms[0]);
+const randomRooms = getRandomRooms(100);
+const randomReviews = getRandomReviews(2000, randomRooms);
 
-module.exports = { getRandomRooms };
-
-
-// {
-//   _roomId: string,
-// overall: number,
-// cleanliness: number,
-// communication: number,
-// checkin: number,
-// accuracy: number,
-// location: number,
-// value: number,
-//   reviews: [ {name: string,
-//     userImageUrl: string,
-//     createdAt: string,
-//     content: string,
-//     overall: number,
-//     cleanliness: number,
-//     communication: number,
-//     checkin: number,
-//     accuracy: number,
-//     location: number,
-//     value: number}, ...
-//   ]
-// }
+module.exports = {
+  getRandomRooms, getRandomReviews, randomRooms, randomReviews, getAvg,
+};

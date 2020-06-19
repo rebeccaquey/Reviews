@@ -17,10 +17,10 @@ module.exports = {
       min: 2,
       max: 10,
     },
-    migration: {
+    migrations: {
       directory: path.join(__dirname, 'database/migrations'),
     },
-    seed: {
+    seeds: {
       directory: path.join(__dirname, 'database/seeds'),
     },
   },
@@ -58,3 +58,5 @@ module.exports = {
   }
 
 };
+
+console.log(path.join(__dirname, 'database/migrations'))
