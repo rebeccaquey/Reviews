@@ -2,16 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 1px solid;
-  height: 48px;
+  width: 450px;
+  height: 36px;
+  margin-right: 90px;
+  padding: 0px 8px;
 `
 
-const MoreReviews = () => {
+const Stars = () => {
   return (
     <Wrapper>
-      <h2>More Reviews</h2>
+      Stars
     </Wrapper>
   );
-};
+}
 
-export default MoreReviews;
+export default Stars;

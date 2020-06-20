@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
 
 const Root = () => {
   return (
-    <div>
+    <Wrapper>
       <App />
-    </div>
+    </Wrapper>
   );
 };
 

@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  border: 0.5px solid;
+  padding-bottom: 32px;
+  height: 59px;
+`
+
 const OverallStars = () => {
   return (
-    <div>
-      <h2>User Reviews</h2>
-      React Works
-    </div>
+    <Wrapper>
+      <h2>OverallStars</h2>
+    </Wrapper>
   );
 };
+
+export default OverallStars;
