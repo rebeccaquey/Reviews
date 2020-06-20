@@ -1,12 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const App = () => {
-  return (
-    <div>
-      <h2>User Reviews</h2>
-      React Works
-    </div>
-  );
-};
+class App extends React.Components {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+
+
+
+  render() {
+    return (
+      <div>
+
+
+
+      </div>
+    );
+  }
+}
 
 export default App;

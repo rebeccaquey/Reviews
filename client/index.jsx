@@ -4,8 +4,10 @@ import App from './components/App.jsx';
 
 const Root = () => {
   return (
-    <App />
+    <div>
+      <App />
+    </div>
   );
 };
 
-ReactDOM.render(<Root />, document.getElementById('root')); 
+ReactDOM.render(<Root />, document.getElementById('root'));
