@@ -7,7 +7,6 @@ import OtherStars from './OtherStars.jsx';
 import ReviewList from './ReviewList.jsx';
 
 const Wrapper = styled.div`
-  border: 1px solid;
   padding: 48px 0px;
   max-width: 1120px;
   display: flex;

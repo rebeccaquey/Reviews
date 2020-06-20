@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 0.5px solid;
   padding-bottom: 32px;
   height: 59px;
+  padding-left: 8px;
 `
 
 const OverallStars = () => {

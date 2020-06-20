@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 1px solid;
   height: 48px;
+  padding-left: 8px;
 `
 
 const MoreReviews = () => {

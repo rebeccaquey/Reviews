@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import OneReview from './OneReview.jsx';
 
 const Wrapper = styled.div`
-  border: 1px solid;
   height: 600px;
   display: flex;
   flex-flow: column wrap;
