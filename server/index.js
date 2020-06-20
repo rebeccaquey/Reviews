@@ -1,20 +1,37 @@
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
-const config = require('../config.js');
+const path = require('path');
+
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('../knexfile.js')[environment];
+// eslint-disable-next-line import/order
+const knex = require('knex')(configuration);
+
 
 const app = express();
 
-const port = process.env.PORT || config.port;
-const url = `http://localhost:${3009}`;
+const port = process.env.PORT || 3009;
+const url = `http://localhost:${port}`;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/rooms/:roomId/reviews', (req, res) => {
-  console.log('EXPRESS GET SUCCESS');
-  res.send('EXPRESS NODE GET SUCCESS');
+  const { roomId } = req.params;
+  knex
+    .select()
+    .from('reviews')
+    .whereIn('room_id', [roomId])
+    .then(
+      (data) => {
+        res.send(data);
+        console.log('APP GET SUCCESS');
+      },
+    )
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.listen(port, () => {
