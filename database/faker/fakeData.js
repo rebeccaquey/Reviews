@@ -36,14 +36,6 @@ const getRandomReviews = (number, rooms) => {
   return reviews;
 };
 
-const getAvg = (reviews, property) => {
-  let score = 0;
-  reviews.forEach((element) => {
-    score += element[property];
-  });
-  score /= reviews.length;
-  return score.toPrecision(2);
-};
 
 const getRandomRooms = (number) => {
   number = number || 1;
@@ -61,7 +53,7 @@ const randomRooms = getRandomRooms(100);
 const randomReviews = getRandomReviews(3000, randomRooms);
 
 module.exports = {
-  getRandomRooms, getRandomReviews, randomRooms, randomReviews, getAvg,
+  getRandomRooms, getRandomReviews, randomRooms, randomReviews,
 };
 
 console.log(typeof randomReviews[0].overall);
