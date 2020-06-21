@@ -24,12 +24,14 @@ const transformReviews = (id, reviews) => {
   const room = {
     roomId: id,
     overall: getAverage(reviews, 'overall'),
-    cleanliness: getAverage(reviews, 'cleanliness'),
-    communication: getAverage(reviews, 'communication'),
-    checkin: getAverage(reviews, 'checkin'),
-    accuracy: getAverage(reviews, 'accuracy'),
-    location: getAverage(reviews, 'location'),
-    value: getAverage(reviews, 'value'),
+    otherStars: {
+      cleanliness: getAverage(reviews, 'cleanliness'),
+      communication: getAverage(reviews, 'communication'),
+      checkin: getAverage(reviews, 'checkin'),
+      accuracy: getAverage(reviews, 'accuracy'),
+      location: getAverage(reviews, 'location'),
+      value: getAverage(reviews, 'value'),
+    },
     reviews: totalReviews,
   };
   return room;

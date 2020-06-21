@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import MoreReviews from './MoreReviews.jsx';
 import OverallStars from './OverallStars.jsx';
-import OtherStars from './OtherStars.jsx';
+import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 
 const Wrapper = styled.div`
@@ -21,7 +21,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ReviewsData: [],
+      reviewsData: [],
       loaded: false,
     };
     this.getRoomReviews = this.getRoomReviews.bind(this);
@@ -35,7 +35,7 @@ class App extends React.Component {
     try {
       const response = await axios.get(`/rooms/${id}/reviews`);
       this.setState(() => ({
-        ReviewsData: response.data,
+        reviewsData: response.data,
         loaded: true,
       }));
     } catch (err) {
@@ -45,14 +45,15 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.ReviewsData);
+    console.log('RENDER STATE', this.state.reviewsData);
+    const { reviewsData, loaded } = this.state;
     return (
 
       <Wrapper>
-        <OverallStars />
-        <OtherStars />
-        <ReviewList />
-        <MoreReviews />
+        {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
+        {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
+        {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}
+        {loaded ? <MoreReviews /> : null}
       </Wrapper>
 
     );

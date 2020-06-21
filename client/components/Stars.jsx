@@ -8,12 +8,12 @@ const Wrapper = styled.div`
   padding: 0px 8px;
 `
 
-const Stars = () => {
+const Stars = ({ starName, rating}) => {
   return (
     <Wrapper>
-      Stars
+      {starName + ' ' + rating}
     </Wrapper>
   );
-}
+};
 
 export default Stars;
