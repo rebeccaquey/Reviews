@@ -47,7 +47,7 @@ const Text = styled.div`
 
 
 const Review = ({ review }) => {
-  const date = moment().format();
+  const monthYear = moment(review.createdAt).format('MMMM YYYY');
   return (
     <Wrapper>
       <AirbnbFont />
@@ -55,7 +55,7 @@ const Review = ({ review }) => {
         <Customer>
           <Image src={review.imageUrl} alt={review.name} />
           {review.name}
-          {review.createdAt}
+          {monthYear}
         </Customer>
         <Content>
           <Text>

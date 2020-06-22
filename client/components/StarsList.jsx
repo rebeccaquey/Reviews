@@ -11,9 +11,8 @@ const Wrapper = styled.div`
 
 
 const StarsList = ({ stars }) => {
-  console.log(stars)
   const starNames = ['Cleanliness', 'Communication', 'Check-in', 'Accuracy', 'Location', 'Value'];
-  const ratings = [stars.cleanliness, stars.communication, stars.checkin, stars.accuracy, stars.location, stars.value]
+  const ratings = [stars.cleanliness, stars.communication, stars.checkin, stars.accuracy, stars.location, stars.value];
   return (
     <Wrapper>
       {starNames.map((element, index) => {

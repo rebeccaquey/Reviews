@@ -1,3 +1,4 @@
+const moment = require('moment');
 
 const getAverage = (reviews, property) => {
   let score = 0;
@@ -9,21 +10,23 @@ const getAverage = (reviews, property) => {
 };
 
 const transformReviews = (id, reviews) => {
+  
   const totalReviews = [];
   for (let i = 0; i < reviews.length; i++) {
+    const jsDate = new Date(reviews[i].created_at)
+    
     const review = {
       id: reviews[i]._id,
       name: reviews[i].name,
       imageUrl: reviews[i].image_url,
-      createdAt: reviews[i].created_at,
+      createdAt: jsDate,
       content: reviews[i].content,
     };
     totalReviews.push(review);
-  };
+  }
 
-  totalReviews.sort((first, second) => {
-    return new Date(second.createdAt) - new Date(first.createdAt);
-  });
+  totalReviews.sort((first, second) => new Date(second.createdAt) - new Date(first.createdAt));
+
   const room = {
     roomId: id,
     overall: getAverage(reviews, 'overall'),
