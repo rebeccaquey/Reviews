@@ -8,8 +8,9 @@ const ModalBackground = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(34,34,34, 0.7);
-  overflow-y: auto !important;
-  animation-duration: 400ms;
+  height: 100vh;
+  overflow: auto;
+  animation-duration: 400ms;2
   animation-iteration-count: 1;
   animation-fill-mode: both;
   animation-name: keyframe_15p0df;
@@ -26,6 +27,7 @@ const ModalContainer = styled.div`
   z-index: 2000;
   position: fixed;
   padding: 40px;
+  
 `
 
 const ModalBox = styled.div`
@@ -42,6 +44,7 @@ const ModalBox = styled.div`
   animation-fill-mode: both;
   animation-name: keyframe_d37zz3;
   background: rgb(255, 255, 255);
+  overflow: auto;
 `
 
 const Modal = ({ handleHideModal, showModal }) => {

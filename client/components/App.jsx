@@ -6,6 +6,14 @@ import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
+import { createGlobalStyle } from 'styled-components'
+
+const BodyStyle = createGlobalStyle`
+  body {
+    overflow-y: ${props => (props.modalOpened ? 'hidden' : 'auto')};
+  }
+`;
+
 
 const Wrapper = styled.div`
   padding: 48px 0px;
@@ -14,7 +22,7 @@ const Wrapper = styled.div`
   flex-flow: column wrap;
   width: 1120px;
   height: 935px;
-
+  
 `;
 
 
@@ -65,8 +73,9 @@ class App extends React.Component {
     const { reviewsData, loaded, showModal } = this.state;
     return (
       <div>
-        <Modal handleHideModal={this.handleHideModal} showModal={showModal} />
+        <BodyStyle modalOpened={showModal} />
         <Wrapper>
+          <Modal handleHideModal={this.handleHideModal} showModal={showModal} />
           {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
           {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
           {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}
