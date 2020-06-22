@@ -5,6 +5,7 @@ import MoreReviews from './MoreReviews.jsx';
 import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
+import Modal from './Modal.jsx';
 
 const Wrapper = styled.div`
   padding: 48px 0px;
@@ -23,8 +24,11 @@ class App extends React.Component {
     this.state = {
       reviewsData: [],
       loaded: false,
+      showModal: false,
     };
     this.getRoomReviews = this.getRoomReviews.bind(this);
+    this.handleShowModal = this.handleShowModal.bind(this);
+    this.handleHideModal = this.handleHideModal.bind(this);
   }
 
   componentDidMount() {
@@ -43,18 +47,32 @@ class App extends React.Component {
     }
   }
 
+  handleShowModal() {
+    this.setState(() => ({
+      showModal: true,
+    }), console.log('SHOW MODAL'));
+  }
+
+  handleHideModal() {
+    this.setState(() => ({
+      showModal: false,
+    }), console.log('HIDE MODAL'));
+  }
+
 
   render() {
-    console.log('RENDER STATE', this.state.reviewsData);
-    const { reviewsData, loaded } = this.state;
+    console.log('RENDER STATE', this.state);
+    const { reviewsData, loaded, showModal } = this.state;
     return (
-
-      <Wrapper>
-        {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
-        {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
-        {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}
-        {loaded ? <MoreReviews /> : null}
-      </Wrapper>
+      <div>
+        <Modal handleHideModal={this.handleHideModal} showModal={showModal} />
+        <Wrapper>
+          {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
+          {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
+          {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}
+          {loaded ? <MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} /> : null}
+        </Wrapper>
+      </div>
 
     );
   }

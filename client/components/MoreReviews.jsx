@@ -6,10 +6,28 @@ const Wrapper = styled.div`
   padding-left: 8px;
 `
 
-const MoreReviews = () => {
+const Button = styled.button`
+  border: 1px solid rgb(21, 25, 27);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 12px 23px;
+  position: relative;
+  text-align: center;
+  width: 201px;
+  border-radius: 8px;
+  background-clip: border-box;
+  &:hover {
+    background-color: rgb(240, 242, 242)
+  }
+  
+`
+
+const MoreReviews = ({ number, handleShowModal }) => {
   return (
     <Wrapper>
-      <h2>More Reviews</h2>
+      <Button onClick={() => handleShowModal()}>{`Show all ${number} reviews`}</Button>
     </Wrapper>
   );
 };

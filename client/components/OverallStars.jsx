@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   font-weight: 550;
 `;
 
-const textSpan = styled.span`
+const TextSpan = styled.span`
   
 `
 
@@ -30,9 +30,9 @@ const OverallStars = ({ stars, number }) => (
     <IconSpan>
       <Icon src="https://airbnbavatars.s3-us-west-1.amazonaws.com/icons/star-8-24.png" />
     </IconSpan>
-    <textSpan>
+    <TextSpan>
       {`${stars} (${number} reviews)`}
-    </textSpan>
+    </TextSpan>
   </Wrapper>
 );
 

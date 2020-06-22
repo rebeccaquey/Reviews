@@ -20,6 +20,25 @@ const Customer = styled.div`
   margin-bottom: 16px;
   font-family: 'Montserrat';
   font-weight: 550;
+  display: flex;
+  align-items: center;
+`
+const ImageWrapper = styled.div`
+  border-radius: 50%;
+
+`
+
+const NameDateWrapper = styled.div`
+  line-height: 20px;
+  margin-left: 12px;
+  font-size: 15px;
+  color: rgb(21, 25, 27);
+
+`
+const DateWrapper = styled.div`
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(98, 96, 94);
 `
 
 const Content = styled.div`
@@ -53,15 +72,26 @@ const Review = ({ review }) => {
       <AirbnbFont />
       <ReviewWrapper>
         <Customer>
-          <Image src={review.imageUrl} alt={review.name} />
-          {review.name}
-          {monthYear}
+
+          <ImageWrapper>
+            <Image src={review.imageUrl} alt={review.name} />
+          </ImageWrapper>
+
+          <NameDateWrapper>
+            {review.name}
+            <DateWrapper>
+              {monthYear}
+            </DateWrapper>
+          </NameDateWrapper>
+
         </Customer>
+
         <Content>
           <Text>
             {review.content}
           </Text>
         </Content>
+
       </ReviewWrapper>
     </Wrapper>
   );
