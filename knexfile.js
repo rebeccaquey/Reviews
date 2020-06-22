@@ -58,5 +58,3 @@ module.exports = {
   }
 
 };
-
-console.log(path.join(__dirname, 'database/migrations'))

@@ -16,11 +16,11 @@ module.exports = {
         test: /\.jsx?/,
         include: CLIENT_DIR,
         exclude: /node.modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-          plugins: ['@babel/plugin-transform-runtime', 'babel-plugin-styled-components']
-        },
+        loader: 'babel-loader?cacheDirectory',
+      },
+      {
+        test: /\.(woff2|woff|eot|ttf|otf)$/,
+        use: ['file-loader'],
       },
     ],
   },

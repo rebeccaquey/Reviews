@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const logic = require('./logic.js')
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../knexfile.js')[environment];
@@ -15,7 +16,7 @@ const url = `http://localhost:${port}`;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/rooms/:roomId/reviews', (req, res) => {
   const { roomId } = req.params;
@@ -25,7 +26,8 @@ app.get('/rooms/:roomId/reviews', (req, res) => {
     .whereIn('room_id', [roomId])
     .then(
       (data) => {
-        res.send(data);
+        const newData = logic.transformReviews(roomId, data);
+        res.send(newData);
         console.log('APP GET SUCCESS');
       },
     )
