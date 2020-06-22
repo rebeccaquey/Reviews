@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
+import AirbnbFont from '../fonts/fonts.js'
 
 const Wrapper = styled.div`
   height: 199px;
@@ -16,10 +18,14 @@ const ReviewWrapper = styled.div`
 const Customer = styled.div`
   height: 56px;
   margin-bottom: 16px;
+  font-family: 'Montserrat';
+  font-weight: 550;
 `
 
 const Content = styled.div`
   height: 96px;
+  font-family: 'Montserrat';
+  font-weight: 400;
 `
 const Image = styled.img`
   height: 56px;
@@ -29,7 +35,6 @@ const Image = styled.img`
 
 const Text = styled.div`
   color: rgb(21, 25, 27);
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 24px;
   height: 69px;
@@ -42,12 +47,15 @@ const Text = styled.div`
 
 
 const Review = ({ review }) => {
+  const date = moment().format();
   return (
     <Wrapper>
+      <AirbnbFont />
       <ReviewWrapper>
         <Customer>
           <Image src={review.imageUrl} alt={review.name} />
           {review.name}
+          {review.createdAt}
         </Customer>
         <Content>
           <Text>

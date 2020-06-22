@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import AirbnbFont from '../fonts/fonts.js'
 
 const Wrapper = styled.div`
   padding-bottom: 32px;
-  height: 59px;
+  height: 27px;
   padding-left: 8px;
-  font-size: 20px;
+  font-size: 22px;
+  font-family: 'Montserrat';
+  font-weight: 550;
 `;
 
 const textSpan = styled.span`
-
+  
 `
 
 const IconSpan = styled.span`
@@ -23,6 +26,7 @@ const Icon = styled.img`
 
 const OverallStars = ({ stars, number }) => (
   <Wrapper>
+    <AirbnbFont />
     <IconSpan>
       <Icon src="https://airbnbavatars.s3-us-west-1.amazonaws.com/icons/star-8-24.png" />
     </IconSpan>

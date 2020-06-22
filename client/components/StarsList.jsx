@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   flex-flow: column wrap;
 `
 
+
 const StarsList = ({ stars }) => {
   console.log(stars)
   const starNames = ['Cleanliness', 'Communication', 'Check-in', 'Accuracy', 'Location', 'Value'];

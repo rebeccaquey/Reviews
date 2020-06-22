@@ -21,6 +21,9 @@ const transformReviews = (id, reviews) => {
     totalReviews.push(review);
   };
 
+  totalReviews.sort((first, second) => {
+    return new Date(second.createdAt) - new Date(first.createdAt);
+  });
   const room = {
     roomId: id,
     overall: getAverage(reviews, 'overall'),

@@ -18,6 +18,10 @@ module.exports = {
         exclude: /node.modules/,
         loader: 'babel-loader?cacheDirectory',
       },
+      {
+        test: /\.(woff2|woff|eot|ttf|otf)$/,
+        use: ['file-loader'],
+      },
     ],
   },
 };
