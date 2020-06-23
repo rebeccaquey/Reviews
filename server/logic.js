@@ -10,11 +10,10 @@ const getAverage = (reviews, property) => {
 };
 
 const transformReviews = (id, reviews) => {
-  
   const totalReviews = [];
   for (let i = 0; i < reviews.length; i++) {
-    const jsDate = new Date(reviews[i].created_at)
-    
+    const jsDate = new Date(reviews[i].created_at);
+
     const review = {
       id: reviews[i]._id,
       name: reviews[i].name,

@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const logic = require('./logic.js')
+const logic = require('./logic.js');
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../knexfile.js')[environment];
 // eslint-disable-next-line import/order
 const knex = require('knex')(configuration);
-
 
 const app = express();
 

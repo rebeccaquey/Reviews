@@ -1,8 +1,6 @@
 const faker = require('faker');
 
-
 const imageUrls = ['https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa1.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa10.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa11.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa12.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa13.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa14.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa15.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa16.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa17.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa18.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa19.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa2.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa20.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa21.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa22.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa23.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa24.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa25.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa3.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa4.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa5.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa6.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa7.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa8.png', 'https://airbnbavatars.s3-us-west-1.amazonaws.com/avatarImages/aa9.png'];
-
 
 const getRandomUrl = () => imageUrls[Math.floor(Math.random() * imageUrls.length)];
 
@@ -35,7 +33,6 @@ const getRandomReviews = (number, rooms) => {
   }
   return reviews;
 };
-
 
 const getRandomRooms = (number) => {
   number = number || 1;

@@ -1,12 +1,15 @@
+/* eslint-disable max-len */
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
 import MoreReviews from './MoreReviews.jsx';
 import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
-import { createGlobalStyle } from 'styled-components'
+
 
 const BodyStyle = createGlobalStyle`
   body {

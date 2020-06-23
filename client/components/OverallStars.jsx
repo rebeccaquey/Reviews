@@ -13,11 +13,11 @@ const Wrapper = styled.div`
 
 const TextSpan = styled.span`
   
-`
+`;
 
 const IconSpan = styled.span`
   margin-right: 8px;
-`
+`;
 
 const Icon = styled.img`
   max-height: 26px;

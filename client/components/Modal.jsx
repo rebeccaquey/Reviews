@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ModalContainer, ModalBox, ModalBackground} from './ModalContainers.jsx';
+import { ModalContainer, ModalBox, ModalBackground } from './ModalContainers.jsx';
 import ModalButton from './ModalButton.jsx';
 import TopBox from './ModalTop.jsx';
 import ModalContent from './ModalContent.jsx';

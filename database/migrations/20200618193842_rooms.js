@@ -4,7 +4,7 @@ const { KnexTimeoutError } = require('knex');
 exports.up = function (knex) {
   return knex.schema
     .dropTableIfExists('rooms')
-    .dropTableIfExists('reviews')   
+    .dropTableIfExists('reviews')
     .createTable('rooms', (table) => {
       table.increments('_id').primary().unsigned();
       table.string('_room_id');
