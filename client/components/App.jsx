@@ -78,7 +78,7 @@ class App extends React.Component {
       <div>
         <BodyStyle modalOpened={showModal} />
         <Wrapper>
-          <Modal handleHideModal={this.handleHideModal} showModal={showModal} />
+          {loaded ? <Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/> : null}
           {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
           {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
           {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}

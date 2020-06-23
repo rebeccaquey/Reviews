@@ -1,28 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import AirbnbFont from '../fonts/fonts.js'
-
-const Wrapper = styled.div`
-  padding-bottom: 32px;
-  height: 27px;
-  padding-left: 8px;
-  font-size: 22px;
-  font-family: 'Montserrat';
-  font-weight: 550;
-`;
-
-const TextSpan = styled.span`
-  
-`;
-
-const IconSpan = styled.span`
-  margin-right: 8px;
-`;
-
-const Icon = styled.img`
-  max-height: 26px;
-  width: 17px;
-`;
+import { Wrapper, TextSpan, IconSpan, Icon } from './OverallStarsStyle.jsx'
 
 const OverallStars = ({ stars, number }) => (
   <Wrapper>

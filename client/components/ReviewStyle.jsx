@@ -1,0 +1,62 @@
+import styled from 'styled-components';
+
+export const Wrapper = styled.div`
+  height: 199px;
+  width: 41%;
+  padding: 0px 8px;
+  margin-right: 80px;
+`
+
+export const ReviewWrapper = styled.div`
+  height: 168px;
+  margin-bottom: 31px;
+`
+
+export const Customer = styled.div`
+  height: 56px;
+  margin-bottom: 16px;
+  font-family: 'Montserrat';
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+`
+
+export const ImageWrapper = styled.div`
+  border-radius: 50%;
+`
+
+export const NameDateWrapper = styled.div`
+  line-height: 20px;
+  margin-left: 12px;
+  font-size: 15px;
+  color: rgb(21, 25, 27);
+
+`
+export const DateWrapper = styled.div`
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(98, 96, 94);
+`
+
+export const Content = styled.div`
+  height: 96px;
+  font-family: 'Montserrat';
+  font-weight: 400;
+`
+export const Image = styled.img`
+  height: 56px;
+  width: 56px;
+  cursor: pointer;
+`
+
+export const Text = styled.div`
+  color: rgb(21, 25, 27);
+  font-size: 16px;
+  line-height: 24px;
+  height: 69px;
+  max-width: 455px;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden; 
+`

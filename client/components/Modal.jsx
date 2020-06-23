@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { ModalContainer, ModalBox, ModalBackground } from './ModalContainers.jsx';
+import { ModalContainer, ModalBox, ModalBackground } from './ModalStyle.jsx';
 import ModalButton from './ModalButton.jsx';
 import TopBox from './ModalTop.jsx';
 import ModalContent from './ModalContent.jsx';
 
 
-const Modal = ({ handleHideModal, showModal }) => {
+const Modal = ({ handleHideModal, showModal, data }) => {
   if (showModal === false) {
     return null;
   }
@@ -16,7 +16,7 @@ const Modal = ({ handleHideModal, showModal }) => {
         <ModalBox>
           <ModalButton />
           <TopBox />
-          <ModalContent />
+          <ModalContent data={data} />
         </ModalBox>
       </ModalContainer>
     </ModalBackground>
