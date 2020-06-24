@@ -54,9 +54,12 @@ export const Text = styled.div`
   font-size: 16px;
   line-height: 24px;
   height: 69px;
-  max-width: ${props => (props.modal ? '100%' : '455px')};
-  overflow-wrap: break-word;
+  width: 454px;
+  display: flex;
+  max-width: ${props => (props.modal ? '540px' : '455px')};
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
-  overflow: hidden; 
 `
