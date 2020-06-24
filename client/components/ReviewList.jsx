@@ -5,10 +5,11 @@ import Review from './Review.jsx';
 
 //hheight 600px now
 const Wrapper = styled.div`
-  height: ${props => (props.modal ? '100%' : '600px')};
+  height: ${props => (props.modal ? '100%' : 'auto')};
+  min-height: ${props => (props.modal ? 'auto' : '600px')};
   max-width: 1120px;
   display: flex;
-  flex-flow: ${props => (props.modal ? 'column nowrap' : 'column wrap')};
+  flex-flow: ${props => (props.modal ? 'column nowrap' : 'row wrap')};
   top: 0px;
   position: relative;
 `;

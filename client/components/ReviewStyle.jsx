@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 //199px H
 export const Wrapper = styled.div`
-  height: 199px;
+  height: auto;
+  min-height: 199px;
   width: ${props => (props.modal ? '100%' : '41%')};
   padding: 0px 8px;
   margin-right: ${props => (props.modal ? '0px' : '80px')};
@@ -53,7 +54,7 @@ export const Image = styled.img`
 //69px
 export const Text = styled.div`
   color: rgb(21, 25, 27);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   height: 69px;  
   width: 454px;
@@ -68,12 +69,10 @@ export const Text = styled.div`
 
 export const ExpandedText = styled.div`
   color: rgb(21, 25, 27);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   height: auto;  
   width: 454px;
   display: flex;
   max-width: ${props => (props.modal ? '540px' : '455px')};
 `
-
-

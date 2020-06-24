@@ -19,7 +19,10 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const ReadMoreButton = ({ handleExpanded }) => {
+const ReadMoreButton = ({ handleExpanded, contentLength }) => {
+  if (contentLength < 162) {
+    return null;
+  }
   return (
     <Button onClick={handleExpanded}>read more</Button>
   );

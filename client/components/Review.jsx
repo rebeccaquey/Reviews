@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import AirbnbFont from '../fonts/fonts.js';
-import ReadMoreButton from './ReadMoreButton.jsx'
+import ReadMoreButton from './ReadMoreButton.jsx';
 
 import {
   Wrapper, ReviewWrapper, Customer, ImageWrapper, NameDateWrapper, DateWrapper, Content, Image, Text, ExpandedText,
@@ -18,20 +18,23 @@ class Review extends React.Component {
   }
 
   handleExpanded() {
-    console.log('Read More clicked')
+    console.log('Read More clicked');
     this.setState(() => ({
       expanded: true,
     }));
   }
 
   render() {
+    
     const { review, modal } = this.props;
+    const contentLength = review.content.length;
+    console.log(review.name, contentLength);
     const { expanded } = this.state;
     const monthYear = moment(review.createdAt).format('MMMM YYYY');
     return (
       <Wrapper modal={modal} expanded={expanded}>
         <AirbnbFont />
-        <ReviewWrapper modal={modal}>        
+        <ReviewWrapper modal={modal}>
           <Customer modal={modal}>
             <ImageWrapper>
               <Image src={review.imageUrl} alt={review.name} />
@@ -42,10 +45,10 @@ class Review extends React.Component {
                 {monthYear}
               </DateWrapper>
             </NameDateWrapper>
-          </Customer>         
+          </Customer>
           <Content modal={modal}>
             {expanded ? <ExpandedText>{review.content}</ExpandedText> : <Text modal={modal}>{review.content}</Text>}
-            {expanded ? null : <ReadMoreButton handleExpanded={this.handleExpanded} />}           
+            {!expanded ? <ReadMoreButton handleExpanded={this.handleExpanded} contentLength={contentLength} /> : null}
           </Content>
         </ReviewWrapper>
       </Wrapper>
