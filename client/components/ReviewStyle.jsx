@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 199px;
-  width: 41%;
+  width: ${props => (props.modal ? '100%' : '41%')};
   padding: 0px 8px;
-  margin-right: 80px;
+  margin-right: ${props => (props.modal ? '0px' : '80px')};
 `
 
 export const ReviewWrapper = styled.div`
@@ -54,7 +54,7 @@ export const Text = styled.div`
   font-size: 16px;
   line-height: 24px;
   height: 69px;
-  max-width: 455px;
+  max-width: ${props => (props.modal ? '100%' : '455px')};
   overflow-wrap: break-word;
   text-overflow: ellipsis;
   white-space: normal;

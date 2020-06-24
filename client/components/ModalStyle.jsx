@@ -4,11 +4,12 @@ export const ModalBackground = styled.div`
   position:fixed;
   top: 0px;
   left: 0px;
+  right: 0px;
+  bottom: 0px;
   width: 100%;
   height: 100%;
   background: rgba(34,34,34, 0.7);
-  height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
   animation-duration: 400ms;
   animation-iteration-count: 1;
   animation-fill-mode: both;
@@ -26,13 +27,17 @@ export const ModalContainer = styled.div`
   z-index: 2000;
   position: fixed;
   padding: 40px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   
 `;
 
 export const ModalBox = styled.div`
-  width: 1032px;
+  width: 100%;
   max-width: 1032px;
-  min-height:300px;
+  max-height: 100%;
   border-radius: 12px;
   position: relative;
   display: flex;
@@ -43,5 +48,6 @@ export const ModalBox = styled.div`
   animation-fill-mode: both;
   animation-name: keyframe_d37zz3;
   background: rgb(255, 255, 255);
-  overflow: auto;
+  margin: 40px;
+  top: 0px;
 `;

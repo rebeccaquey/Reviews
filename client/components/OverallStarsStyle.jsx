@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
   font-size: ${props => (props.modal ? '30px' : '22px')};
   font-family: 'Montserrat';
   font-weight: 550;
-  line-height: ${props => (props.modal ? '36px' : '26px')}
+  line-height: ${props => (props.modal ? '36px' : '26px')};
+  position: ${props => (props.modal ? 'sticky' : 'static')};
 `;
 
 export const TextSpan = styled.span`

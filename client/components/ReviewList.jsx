@@ -4,18 +4,21 @@ import styled from 'styled-components';
 import Review from './Review.jsx';
 
 const Wrapper = styled.div`
-  height: 600px;
+  height: ${props => (props.modal ? '100%' : '600px')};
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: ${props => (props.modal ? 'column nowrap' : 'column wrap')};
 `;
 
-const ReviewList = ({ reviews }) => {
-  const frontReviews = reviews.slice(0, 6);
+const ReviewList = ({ reviews, modal }) => {
+  let frontReviews = reviews.slice(0, 6);
+  if (modal) {
+    frontReviews = reviews;
+  }
   console.log(frontReviews);
   return (
-    <Wrapper>
+    <Wrapper modal={modal}>
       {frontReviews.map((el, index) => (
-        <Review key={index} review={el} />
+        <Review modal={modal} key={index} review={el} />
       ))}
     </Wrapper>
   );

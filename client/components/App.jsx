@@ -14,6 +14,7 @@ import Modal from './Modal.jsx';
 const BodyStyle = createGlobalStyle`
   body {
     overflow-y: ${props => (props.modalOpened ? 'hidden' : 'auto')};
+    ${'' /* overflow-x: auto; */}
   }
 `;
 

@@ -4,35 +4,37 @@ import styled from 'styled-components';
 import MainStars from './ModalMainStars.jsx';
 import ModalReviewList from './ModalReviewList.jsx';
 import ModalStarsList from './ModalStarsList.jsx';
-import OverallStars from './OverallStars.jsx'
+import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
+import ReviewList from './ReviewList.jsx';
 
 const MainBox = styled.div`
   flex: 1 1 auto;
   padding: 24px;
   display: block;
-  overflow: auto;
+  max-height: 680px;
+  overflow-y: scroll;
 `;
 
 const ContentBox = styled.div`
   color: rgb(34, 34, 34);
   font-weight: 400;
-  position: relative;
   margin-top: -24px;
   display: flex;
 `;
 
 const AllStars = styled.div`
-  border: 0.2px solid;
-  position: sticky;
+  top: -5px;
+  left: 0;
+  position: -webkit-sticky !important;
+  position: sticky !important;
   width: 33.3%;
-  float: left;
-  padding: 0px -8px;
-
+  height: 300px;
+  /* padding: 0px -8px; */
 `;
 
 const AllReviews = styled.div`
-  border: 0.2px solid;
+  /* max-height: 100%; */
   width: 58%;
   margin-left: 8.3%;
   padding: 0px 8px;
@@ -50,7 +52,7 @@ const ModalContent = ({ data }) => {
           <StarsList stars={data.otherStars} modal />
         </AllStars>
         <AllReviews>
-          <ModalReviewList reviews={data.reviews} />
+          <ReviewList reviews={data.reviews} modal />
         </AllReviews>
       </ContentBox>
     </MainBox>

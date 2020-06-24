@@ -7,14 +7,14 @@ import {
 } from './ReviewStyle.jsx';
 
 
-const Review = ({ review }) => {
+const Review = ({ review, modal }) => {
   const monthYear = moment(review.createdAt).format('MMMM YYYY');
   return (
-    <Wrapper>
+    <Wrapper modal={modal}>
       <AirbnbFont />
-      <ReviewWrapper>
+      <ReviewWrapper modal={modal}>
         {/* //customer */}
-        <Customer>
+        <Customer modal={modal}>
           <ImageWrapper>
             <Image src={review.imageUrl} alt={review.name} />
           </ImageWrapper>
@@ -26,8 +26,8 @@ const Review = ({ review }) => {
           </NameDateWrapper>
         </Customer>
         {/* //content */}
-        <Content>
-          <Text>
+        <Content modal={modal}>
+          <Text modal={modal}>
             {review.content}
           </Text>
         </Content>
