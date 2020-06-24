@@ -5,12 +5,12 @@ export const Wrapper = styled.div`
   width: ${props => (props.modal ? '100%' : '41%')};
   padding: 0px 8px;
   margin-right: ${props => (props.modal ? '0px' : '80px')};
-`
+`;
 
 export const ReviewWrapper = styled.div`
   height: 168px;
   margin-bottom: 31px;
-`
+`;
 
 export const Customer = styled.div`
   height: 56px;
@@ -19,11 +19,11 @@ export const Customer = styled.div`
   font-weight: 550;
   display: flex;
   align-items: center;
-`
+`;
 
 export const ImageWrapper = styled.div`
   border-radius: 50%;
-`
+`;
 
 export const NameDateWrapper = styled.div`
   line-height: 20px;
@@ -31,23 +31,23 @@ export const NameDateWrapper = styled.div`
   font-size: 15px;
   color: rgb(21, 25, 27);
 
-`
+`;
 export const DateWrapper = styled.div`
   font-size: 13px;
   font-weight: 400;
   color: rgb(98, 96, 94);
-`
+`;
 
 export const Content = styled.div`
   height: 96px;
   font-family: 'Montserrat';
   font-weight: 400;
-`
+`;
 export const Image = styled.img`
   height: 56px;
   width: 56px;
   cursor: pointer;
-`
+`;
 
 export const Text = styled.div`
   color: rgb(21, 25, 27);
@@ -62,4 +62,4 @@ export const Text = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-`
+`;

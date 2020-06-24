@@ -6,9 +6,9 @@ import {
 } from './ModalButtonStyle.jsx';
 
 
-const ModalButton = () => (
+const ModalButton = ({ handleHideModal }) => (
   <ExitBox>
-    <ExitButton type="button">
+    <ExitButton type="button" onClick={handleHideModal}>
       <IconSpan>
         <Icon>
           <SlashOne />
