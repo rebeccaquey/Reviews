@@ -10,7 +10,7 @@ import ReviewList from './ReviewList.jsx';
 
 const MainBox = styled.div`
   flex: 1 1 auto;
-  padding: 24px;
+  padding: 24px 24px 24px 18px;
   display: block;
   max-height: 680px;
   overflow-y: scroll;
@@ -24,13 +24,13 @@ const ContentBox = styled.div`
 `;
 
 const AllStars = styled.div`
-  top: -5px;
+  top: -30px;
   left: 0;
   position: -webkit-sticky !important;
   position: sticky !important;
   width: 33.3%;
   height: 300px;
-  /* padding: 0px -8px; */
+  padding: 0px -8px;
 `;
 
 const AllReviews = styled.div`

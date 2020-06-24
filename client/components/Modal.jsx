@@ -11,9 +11,9 @@ const Modal = ({ handleHideModal, showModal, data }) => {
     return null;
   }
   return (
-    <ModalBackground onClick={() => handleHideModal()}>
+    <ModalBackground onClick={handleHideModal}>
       <ModalContainer>
-        <ModalBox>
+        <ModalBox onClick={e => e.stopPropagation()}>
           <ModalButton />
           <TopBox />
           <ModalContent data={data} />

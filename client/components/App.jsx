@@ -65,7 +65,8 @@ class App extends React.Component {
     }), console.log('SHOW MODAL'));
   }
 
-  handleHideModal() {
+  handleHideModal(e) {
+    e.stopPropagation();
     this.setState(() => ({
       showModal: false,
     }), console.log('HIDE MODAL'));
