@@ -7,8 +7,8 @@ import {
 } from './OverallStarsStyle.jsx';
 
 
-const MainStars = ({ stars, number }) => (
-  <Wrapper>
+const MainStars = ({ stars, number, modal }) => (
+  <Wrapper modal={modal}>
     <AirbnbFont />
     <IconSpan>
       <Icon src="https://airbnbavatars.s3-us-west-1.amazonaws.com/icons/star-8-24.png" />

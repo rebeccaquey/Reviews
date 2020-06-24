@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   padding-bottom: 32px;
-  height: 27px;
+  height: ${props => (props.modal ? '38px' : '27px')};
   padding-left: 8px;
-  font-size: 22px;
+  font-size: ${props => (props.modal ? '32px' : '22px')};
   font-family: 'Montserrat';
   font-weight: 550;
+  line-height: ${props => (props.modal ? '36px' : '26px')}
 `;
 
 export const TextSpan = styled.span`
@@ -18,6 +19,6 @@ export const IconSpan = styled.span`
 `;
 
 export const Icon = styled.img`
-  max-height: 26px;
-  width: 17px;
+  max-height: ${props => (props.modal ? '38px' : '27px')};
+  width: ${props => (props.modal ? '25px' : '17px')};
 `;

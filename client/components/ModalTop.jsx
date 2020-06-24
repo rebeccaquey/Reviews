@@ -10,4 +10,3 @@ const TopBox = styled.div`
 `;
 
 export default TopBox;
- 

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MainStars from './ModalMainStars.jsx';
 import ModalReviewList from './ModalReviewList.jsx';
 import ModalStarsList from './ModalStarsList.jsx';
+import OverallStars from './OverallStars.jsx'
 
 const MainBox = styled.div`
   flex: 1 1 auto;
@@ -44,7 +45,7 @@ const ModalContent = ({ data }) => {
     <MainBox>
       <ContentBox>
         <AllStars>
-          <MainStars stars={data.overall} number={data.reviews.length} />
+          <OverallStars stars={data.overall} number={data.reviews.length} modal />
           <ModalStarsList stars={data.otherStars} />
         </AllStars>
         <AllReviews>
