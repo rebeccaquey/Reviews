@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+//199px H
 export const Wrapper = styled.div`
   height: 199px;
   width: ${props => (props.modal ? '100%' : '41%')};
@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   margin-right: ${props => (props.modal ? '0px' : '80px')};
 `;
 
+//h 168px
 export const ReviewWrapper = styled.div`
   height: auto;
   margin-bottom: 31px;
@@ -49,11 +50,12 @@ export const Image = styled.img`
   cursor: pointer;
 `;
 
+//69px
 export const Text = styled.div`
   color: rgb(21, 25, 27);
   font-size: 16px;
   line-height: 24px;
-  height: auto;  
+  height: 69px;  
   width: 454px;
   display: flex;
   max-width: ${props => (props.modal ? '540px' : '455px')};
@@ -64,5 +66,14 @@ export const Text = styled.div`
   text-overflow: ellipsis;
 `;
 
+export const ExpandedText = styled.div`
+  color: rgb(21, 25, 27);
+  font-size: 16px;
+  line-height: 24px;
+  height: auto;  
+  width: 454px;
+  display: flex;
+  max-width: ${props => (props.modal ? '540px' : '455px')};
+`
 
-//69px
+

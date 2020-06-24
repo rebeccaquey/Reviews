@@ -14,7 +14,6 @@ import Modal from './Modal.jsx';
 const BodyStyle = createGlobalStyle`
   body {
     overflow-y: ${props => (props.modalOpened ? 'hidden' : 'auto')};
-    ${'' /* overflow-x: auto; */}
   }
 `;
 
@@ -23,10 +22,12 @@ const Wrapper = styled.div`
   padding: 48px 0px;
   max-width: 1120px;
   display: flex;
-  flex-flow: column wrap;
-  width: 1120px;
-  height: 935px;
-  
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 `;
 
 
