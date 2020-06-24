@@ -6,19 +6,19 @@ import {
   Wrapper, StarContainer, NameWrapper, BarWrapper, NumberWrapper, Bar, Filler,
 } from './StarsStyle.jsx';
 
-const Stars = ({ starName, rating }) => (
-  <Wrapper>
+const Stars = ({ starName, rating, modal }) => (
+  <Wrapper modal={modal}>
     <AirbnbFont />
-    <StarContainer>
-      <NameWrapper>
+    <StarContainer modal={modal}>
+      <NameWrapper modal={modal}>
         {starName}
       </NameWrapper>
-      <BarWrapper>
-        <Bar>
+      <BarWrapper modal={modal}>
+        <Bar modal={modal}>
           <Filler number={`${((rating / 5) * 100).toFixed(2)}%`} />
         </Bar>
       </BarWrapper>
-      <NumberWrapper>
+      <NumberWrapper modal={modal}>
         {rating}
       </NumberWrapper>
 

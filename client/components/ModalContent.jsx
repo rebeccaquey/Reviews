@@ -5,6 +5,7 @@ import MainStars from './ModalMainStars.jsx';
 import ModalReviewList from './ModalReviewList.jsx';
 import ModalStarsList from './ModalStarsList.jsx';
 import OverallStars from './OverallStars.jsx'
+import StarsList from './StarsList.jsx';
 
 const MainBox = styled.div`
   flex: 1 1 auto;
@@ -26,7 +27,7 @@ const AllStars = styled.div`
   position: sticky;
   width: 33.3%;
   float: left;
-  padding: 0px 8px;
+  padding: 0px -8px;
 
 `;
 
@@ -46,7 +47,7 @@ const ModalContent = ({ data }) => {
       <ContentBox>
         <AllStars>
           <OverallStars stars={data.overall} number={data.reviews.length} modal />
-          <ModalStarsList stars={data.otherStars} />
+          <StarsList stars={data.otherStars} modal />
         </AllStars>
         <AllReviews>
           <ModalReviewList reviews={data.reviews} />

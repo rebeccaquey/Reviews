@@ -31,10 +31,10 @@ const transformReviews = (id, reviews) => {
     overall: getAverage(reviews, 'overall'),
     otherStars: {
       cleanliness: getAverage(reviews, 'cleanliness'),
-      communication: getAverage(reviews, 'communication'),
-      checkin: getAverage(reviews, 'checkin'),
       accuracy: getAverage(reviews, 'accuracy'),
+      communication: getAverage(reviews, 'communication'),
       location: getAverage(reviews, 'location'),
+      checkin: getAverage(reviews, 'checkin'),
       value: getAverage(reviews, 'value'),
     },
     reviews: totalReviews,

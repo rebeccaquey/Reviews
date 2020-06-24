@@ -1,22 +1,24 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: 450px;
+  width: ${props => (props.modal ? '100%' : '450px')};
   height: 36px;
-  margin-right: 90px;
+  margin-right: ${props => (props.modal ? '8px' : '90px')};
   padding: 0px 8px;
   font-family: 'Montserrat';
   font-weight: 400;
-  font-size: 16px;
+  font-size: ${props => (props.modal ? '14px' : '16px')};
   line-height: 20px;
 
 `;
 
 export const StarContainer = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: ${props => (props.modal ? '12px' : '16px')};
   display: flex;
   height: 20px;
-  margin-bottom:  16px;
+  margin-bottom: ${props => (props.modal ? '12px' : '16px')};
+  align-items: ${props => (props.modal ? 'center' : 'auto')};
+  justify-content: ${props => (props.modal ? 'space-between' : 'flex-start')};
 `;
 
 export const NameWrapper = styled.div`

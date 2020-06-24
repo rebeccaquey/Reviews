@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   padding-bottom: 32px;
   height: ${props => (props.modal ? '38px' : '27px')};
   padding-left: 8px;
-  font-size: ${props => (props.modal ? '32px' : '22px')};
+  font-size: ${props => (props.modal ? '30px' : '22px')};
   font-family: 'Montserrat';
   font-weight: 550;
   line-height: ${props => (props.modal ? '36px' : '26px')}
