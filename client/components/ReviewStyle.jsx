@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ReviewWrapper = styled.div`
-  height: 168px;
+  height: auto;
   margin-bottom: 31px;
 `;
 
@@ -39,7 +39,7 @@ export const DateWrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 96px;
+  height: auto;
   font-family: 'Montserrat';
   font-weight: 400;
 `;
@@ -53,13 +53,16 @@ export const Text = styled.div`
   color: rgb(21, 25, 27);
   font-size: 16px;
   line-height: 24px;
-  height: 69px;
+  height: auto;  
   width: 454px;
   display: flex;
   max-width: ${props => (props.modal ? '540px' : '455px')};
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical; 
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
+
+//69px
