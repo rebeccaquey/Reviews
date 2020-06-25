@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   height: 48px;
   padding-left: 8px;
-`
+`;
 
 const Button = styled.button`
   border: 1px solid rgb(21, 25, 27);
@@ -22,7 +22,7 @@ const Button = styled.button`
     background-color: rgb(240, 242, 242)
   }
   
-`
+`;
 
 const MoreReviews = ({ number, handleShowModal }) => {
   return (

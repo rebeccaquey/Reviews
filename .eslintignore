@@ -1,0 +1,3 @@
+node_modules
+public/bundle.js
+__tests__
