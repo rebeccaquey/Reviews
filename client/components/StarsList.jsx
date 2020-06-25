@@ -4,26 +4,26 @@ import Stars from './Stars.jsx';
 
 const Wrapper = styled.div`
   margin-bottom: 24px;
-  height: 110px;
+  height: ${props => (props.modal ? 'calc(100%+16px)' : '110px')};
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
 `;
 
 
-const StarsList = ({ stars }) => {
-  const starNames = ['Cleanliness', 'Communication', 'Check-in', 'Accuracy', 'Location', 'Value'];
+const StarsList = ({ stars, modal }) => {
+  const starNames = ['Cleanliness', 'Accuracy', 'Communication', 'Location', 'Check-in', 'Value'];
   const ratings = [
     stars.cleanliness,
-    stars.communication,
-    stars.checkin,
     stars.accuracy,
+    stars.communication,
     stars.location,
+    stars.checkin,
     stars.value,
   ];
   return (
-    <Wrapper>
+    <Wrapper modal={modal}>
       {starNames.map((element, index) => (
-        <Stars key={element} starName={element} rating={ratings[index]} />
+        <Stars modal={modal} key={element} starName={element} rating={ratings[index]} />
       ))}
     </Wrapper>
   );

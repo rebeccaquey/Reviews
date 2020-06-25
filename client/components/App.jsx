@@ -1,36 +1,33 @@
+/* eslint-disable max-len */
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+
+import sampleData from './sampleData.js';
+import BodyStyle from './GlobalStyle.jsx';
 import MoreReviews from './MoreReviews.jsx';
 import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
-import { createGlobalStyle } from 'styled-components'
-
-const BodyStyle = createGlobalStyle`
-  body {
-    overflow-y: ${props => (props.modalOpened ? 'hidden' : 'auto')};
-  }
-`;
-
 
 const Wrapper = styled.div`
   padding: 48px 0px;
   max-width: 1120px;
   display: flex;
-  flex-flow: column wrap;
-  width: 1120px;
-  height: 935px;
-  
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 `;
-
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewsData: [],
+      reviewsData: sampleData,
       loaded: false,
       showModal: false,
     };
@@ -40,7 +37,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getRoomReviews(3);
+    this.getRoomReviews(4);
   }
 
   async getRoomReviews(id) {
@@ -67,22 +64,20 @@ class App extends React.Component {
     }), console.log('HIDE MODAL'));
   }
 
-
   render() {
-    console.log('RENDER STATE', this.state);
+    // console.log('RENDER STATE', this.state);
     const { reviewsData, loaded, showModal } = this.state;
     return (
       <div>
         <BodyStyle modalOpened={showModal} />
         <Wrapper>
-          <Modal handleHideModal={this.handleHideModal} showModal={showModal} />
+          {loaded ? <Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/> : null}
           {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
           {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
           {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}
           {loaded ? <MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} /> : null}
         </Wrapper>
       </div>
-
     );
   }
 }

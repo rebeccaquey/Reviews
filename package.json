@@ -67,6 +67,9 @@
       "es6": true,
       "browser": true,
       "node": true
+    },
+    "rules": {
+      "import/extensions": [1, "ignorePackages"]
     }
   }
 }

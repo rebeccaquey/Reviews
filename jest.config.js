@@ -4,7 +4,6 @@ module.exports = {
   testEnvironment: 'enzyme',
   setupFilesAfterEnv: ['jest-enzyme'],
   collectCoverage: true,
-  verbose: true,
   testEnvironmentOptions: {
     enzymeAdapter: 'react16',
   },

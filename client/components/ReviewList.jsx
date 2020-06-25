@@ -3,19 +3,27 @@ import React from 'react';
 import styled from 'styled-components';
 import Review from './Review.jsx';
 
+//hheight 600px now
 const Wrapper = styled.div`
-  height: 600px;
+  height: ${props => (props.modal ? '100%' : 'auto')};
+  min-height: ${props => (props.modal ? 'auto' : '600px')};
+  max-width: 1120px;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: ${props => (props.modal ? 'column nowrap' : 'row wrap')};
+  top: 0px;
+  position: relative;
 `;
 
-const ReviewList = ({ reviews }) => {
-  const frontReviews = reviews.slice(0, 6);
-  console.log(frontReviews);
+const ReviewList = ({ reviews, modal }) => {
+  let frontReviews = reviews.slice(0, 6);
+  if (modal) {
+    frontReviews = reviews;
+  }
+  // console.log(frontReviews);
   return (
-    <Wrapper>
+    <Wrapper modal={modal}>
       {frontReviews.map((el, index) => (
-        <Review key={index} review={el} />
+        <Review modal={modal} key={index} review={el} />
       ))}
     </Wrapper>
   );
