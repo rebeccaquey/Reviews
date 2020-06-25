@@ -5,7 +5,7 @@
   "main": "/index.js",
   "scripts": {
     "start": "nodemon ./server/index.js --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack -d --watch",
     "knex-seed": "knex migrate:rollback &&  npx knex migrate:latest && knex seed:run",
     "watsonseedmachine": "knex migrate:rollback &&  npx knex migrate:latest && knex seed:run"
@@ -27,8 +27,11 @@
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.21.2",
@@ -36,6 +39,8 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "file-loader": "^6.0.0",
+    "jest": "^26.0.1",
+    "jest-environment-enzyme": "^7.1.2",
     "nodemon": "^2.0.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
@@ -46,6 +51,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest-enzyme": "^7.1.2",
     "knex": "^0.21.1",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
@@ -61,6 +67,9 @@
       "es6": true,
       "browser": true,
       "node": true
+    },
+    "rules": {
+      "import/extensions": [1, "ignorePackages"]
     }
   }
 }

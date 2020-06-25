@@ -1,8 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import airbnbLight from './AirbnbCereal-Light.ttf';
-import airbnbMedium from './AirbnbCereal-Medium.ttf';
-
 export default createGlobalStyle`
   @font-face {
     font-family: "Montserrat";
