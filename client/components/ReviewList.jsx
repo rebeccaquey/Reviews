@@ -19,7 +19,7 @@ const ReviewList = ({ reviews, modal }) => {
   if (modal) {
     frontReviews = reviews;
   }
-  console.log(frontReviews);
+  // console.log(frontReviews);
   return (
     <Wrapper modal={modal}>
       {frontReviews.map((el, index) => (

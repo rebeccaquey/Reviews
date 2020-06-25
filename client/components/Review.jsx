@@ -18,17 +18,14 @@ class Review extends React.Component {
   }
 
   handleExpanded() {
-    console.log('Read More clicked');
     this.setState(() => ({
       expanded: true,
     }));
   }
 
   render() {
-    
     const { review, modal } = this.props;
     const contentLength = review.content.length;
-    console.log(review.name, contentLength);
     const { expanded } = this.state;
     const monthYear = moment(review.createdAt).format('MMMM YYYY');
     return (

@@ -20,7 +20,7 @@ const Button = styled.button`
 `;
 
 const ReadMoreButton = ({ handleExpanded, contentLength }) => {
-  if (contentLength < 162) {
+  if (contentLength < 163) {
     return null;
   }
   return (

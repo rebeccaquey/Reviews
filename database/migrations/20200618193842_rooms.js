@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-const { KnexTimeoutError } = require('knex');
 
 exports.up = function (knex) {
   return knex.schema

@@ -69,7 +69,7 @@
       "node": true
     },
     "rules": {
-      "import/extensions": ["ignorePackages"]
+      "import/extensions": [1, "ignorePackages"]
     }
   }
 }

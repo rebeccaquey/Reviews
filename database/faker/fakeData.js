@@ -12,7 +12,7 @@ const getRandomReviews = (number, rooms) => {
   const reviews = [];
   // const randomN = Math.floor(Math.random() * (16 - 6) + 6);
   const roomLen = rooms.length;
-  for (let i = 0; i < number; i++) {
+  for (let i = 0; i < number; i += 1) {
     // eslint-disable-next-line no-underscore-dangle
     const randomRoomId = rooms[Math.floor(Math.random() * roomLen)]._room_id;
     const review = {
@@ -34,8 +34,7 @@ const getRandomReviews = (number, rooms) => {
   return reviews;
 };
 
-const getRandomRooms = (number) => {
-  number = number || 1;
+const getRandomRooms = (number = 1) => {
   const rooms = [];
   for (let i = 0; i < number; i += 1) {
     const room = {
@@ -53,4 +52,4 @@ module.exports = {
   getRandomRooms, getRandomReviews, randomRooms, randomReviews,
 };
 
-console.log(typeof randomReviews[0].overall);
+// console.log(typeof randomReviews[0].overall);

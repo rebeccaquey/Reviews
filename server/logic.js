@@ -1,5 +1,4 @@
-const moment = require('moment');
-
+/* eslint-disable no-underscore-dangle */
 const getAverage = (reviews, property) => {
   let score = 0;
   reviews.forEach((element) => {
@@ -11,7 +10,7 @@ const getAverage = (reviews, property) => {
 
 const transformReviews = (id, reviews) => {
   const totalReviews = [];
-  for (let i = 0; i < reviews.length; i++) {
+  for (let i = 0; i < reviews.length; i += 1) {
     const jsDate = new Date(reviews[i].created_at);
 
     const review = {

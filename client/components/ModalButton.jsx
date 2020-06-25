@@ -1,10 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import {
   ExitBox, ExitButton, IconSpan, Icon, SlashOne, SlashTwo,
 } from './ModalButtonStyle.jsx';
-
 
 const ModalButton = ({ handleHideModal }) => (
   <ExitBox>

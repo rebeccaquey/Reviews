@@ -2,21 +2,14 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { createGlobalStyle } from 'styled-components';
 
+import sampleData from './sampleData.js';
+import BodyStyle from './GlobalStyle.jsx';
 import MoreReviews from './MoreReviews.jsx';
 import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
-
-
-const BodyStyle = createGlobalStyle`
-  body {
-    overflow-y: ${props => (props.modalOpened ? 'hidden' : 'auto')};
-  }
-`;
-
 
 const Wrapper = styled.div`
   padding: 48px 0px;
@@ -30,12 +23,11 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewsData: [],
+      reviewsData: sampleData,
       loaded: false,
       showModal: false,
     };
@@ -45,7 +37,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getRoomReviews(3);
+    this.getRoomReviews(4);
   }
 
   async getRoomReviews(id) {
@@ -72,9 +64,8 @@ class App extends React.Component {
     }), console.log('HIDE MODAL'));
   }
 
-
   render() {
-    console.log('RENDER STATE', this.state);
+    // console.log('RENDER STATE', this.state);
     const { reviewsData, loaded, showModal } = this.state;
     return (
       <div>
@@ -87,7 +78,6 @@ class App extends React.Component {
           {loaded ? <MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} /> : null}
         </Wrapper>
       </div>
-
     );
   }
 }

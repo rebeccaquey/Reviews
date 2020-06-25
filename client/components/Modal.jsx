@@ -5,7 +5,6 @@ import ModalButton from './ModalButton.jsx';
 import TopBox from './ModalTop.jsx';
 import ModalContent from './ModalContent.jsx';
 
-
 const Modal = ({ handleHideModal, showModal, data }) => {
   if (showModal === false) {
     return null;

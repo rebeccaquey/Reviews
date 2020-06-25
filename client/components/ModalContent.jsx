@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import MainStars from './ModalMainStars.jsx';
-import ModalReviewList from './ModalReviewList.jsx';
-import ModalStarsList from './ModalStarsList.jsx';
 import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
@@ -43,7 +40,7 @@ const AllReviews = styled.div`
 `;
 
 const ModalContent = ({ data }) => {
-  console.log('MODAL DATA', data);
+  // console.log('MODAL DATA', data);
   return (
     <MainBox>
       <ContentBox>
