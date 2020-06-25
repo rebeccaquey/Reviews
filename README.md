@@ -1,5 +1,5 @@
 # Reviews
-clone of AirBnB reviews
+Customer reviews moduel
 
 
 -users
