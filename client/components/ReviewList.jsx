@@ -3,6 +3,7 @@ import React, { lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
 import dayjs from 'dayjs';
+
 const Review = lazy(() => import('./Review.jsx'));
 
 // hheight 600px now
@@ -23,14 +24,12 @@ const ReviewList = ({ reviews, modal }) => {
   }
   return (
     <Wrapper modal={modal}>
-    <Suspense fallback={<div>Loading...</div>}>
-      {frontReviews.map((el, index) => {
-        return (
-          <LazyLoad once={true} overflow height={200} throttle={300} >
+      <Suspense fallback={<div>Loading...</div>}>
+        {frontReviews.map(el => (
+          <LazyLoad once overflow height={200} throttle={300}>
             <Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />
-          </LazyLoad> 
-          );
-      })}
+          </LazyLoad>
+        ))}
       </Suspense>
     </Wrapper>
   );
