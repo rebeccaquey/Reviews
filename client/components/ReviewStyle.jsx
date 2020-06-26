@@ -18,7 +18,7 @@ export const Customer = styled.div`
   height: 56px;
   margin-bottom: 16px;
   font-family: 'Montserrat';
-  font-weight: 550;
+  font-weight: 600;
   display: flex;
   align-items: center;
 `;
@@ -32,6 +32,7 @@ export const NameDateWrapper = styled.div`
   margin-left: 12px;
   font-size: 15px;
   color: rgb(21, 25, 27);
+  font-weight: 600;
 
 `;
 export const DateWrapper = styled.div`

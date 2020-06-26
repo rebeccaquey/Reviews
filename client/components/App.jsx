@@ -1,15 +1,16 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-
-import sampleData from './sampleData.js';
 import BodyStyle from './GlobalStyle.jsx';
-import MoreReviews from './MoreReviews.jsx';
-import OverallStars from './OverallStars.jsx';
-import StarsList from './StarsList.jsx';
-import ReviewList from './ReviewList.jsx';
-import Modal from './Modal.jsx';
+import sampleData from './sampleData.js';
+const Modal = lazy(()=> import('./Modal.jsx'));
+const OverallStars = lazy(()=> import('./OverallStars.jsx'));
+const MoreReviews = lazy(()=> import('./MoreReviews.jsx'));
+const StarsList = lazy(()=> import('./StarsList.jsx'));
+const ReviewList = lazy(()=> import('./ReviewList.jsx'));
+
+
 
 const Wrapper = styled.div`
   padding: 48px 0px;
@@ -23,13 +24,14 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       reviewsData: sampleData,
       loaded: false,
       showModal: false,
+      loading: false,
     };
     this.getRoomReviews = this.getRoomReviews.bind(this);
     this.handleShowModal = this.handleShowModal.bind(this);
@@ -37,7 +39,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getRoomReviews(4);
+    this.getRoomReviews(6);
   }
 
   async getRoomReviews(id) {
@@ -66,17 +68,19 @@ class App extends React.Component {
 
   render() {
     // console.log('RENDER STATE', this.state);
-    const { reviewsData, loaded, showModal } = this.state;
+    const { reviewsData, loaded, showModal, sixReviews } = this.state;
     return (
       <div>
         <BodyStyle modalOpened={showModal} />
-        <Wrapper>
-          {loaded ? <Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/> : null}
-          {loaded ? <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /> : null}
-          {loaded ? <StarsList stars={reviewsData.otherStars} /> : null}
-          {loaded ? <ReviewList reviews={reviewsData.reviews} /> : null}
-          {loaded ? <MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} /> : null}
-        </Wrapper>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Wrapper>
+            <Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/>
+            <OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} />
+            <StarsList stars={reviewsData.otherStars} />
+            <ReviewList reviews={reviewsData.reviews} />
+            <MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} />
+          </Wrapper>
+        </Suspense>
       </div>
     );
   }
