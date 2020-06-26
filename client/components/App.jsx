@@ -39,7 +39,7 @@ class App extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.getRoomReviews(6);
+    this.getRoomReviews(5);
   }
 
   async getRoomReviews(id) {

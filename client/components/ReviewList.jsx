@@ -26,7 +26,7 @@ const ReviewList = ({ reviews, modal }) => {
     <Suspense fallback={<div>Loading...</div>}>
       {frontReviews.map((el, index) => {
         return (
-          <LazyLoad once={true} overflow height={200} throttle={300}>
+          <LazyLoad once={true} overflow height={200} throttle={300} >
             <Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />
           </LazyLoad> 
           );
