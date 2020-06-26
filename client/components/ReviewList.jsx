@@ -1,9 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import styled from 'styled-components';
-import Review from './Review.jsx';
+import LazyLoad from 'react-lazyload';
+import dayjs from 'dayjs';
 
-//hheight 600px now
+const Review = lazy(() => import('./Review.jsx'));
+
+// hheight 600px now
 const Wrapper = styled.div`
   height: ${props => (props.modal ? '100%' : 'auto')};
   min-height: ${props => (props.modal ? 'auto' : '600px')};
@@ -19,14 +22,17 @@ const ReviewList = ({ reviews, modal }) => {
   if (modal) {
     frontReviews = reviews;
   }
-  // console.log(frontReviews);
   return (
     <Wrapper modal={modal}>
-      {frontReviews.map((el, index) => (
-        <Review modal={modal} key={index} review={el} />
-      ))}
+      <Suspense fallback={<div>Loading...</div>}>
+        {frontReviews.map(el => (
+          <LazyLoad once overflow height={200} throttle={300}>
+            <Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />
+          </LazyLoad>
+        ))}
+      </Suspense>
     </Wrapper>
   );
 };
 
-export default ReviewList;
+export default React.memo(ReviewList);

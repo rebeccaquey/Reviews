@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AirbnbFont from '../fonts/fonts.js'
-import { Wrapper, TextSpan, IconSpan, Icon } from './OverallStarsStyle.jsx'
+import AirbnbFont from '../fonts/fonts.js';
+import { Wrapper, TextSpan, IconSpan, Icon } from './OverallStarsStyle.jsx';
 
 const OverallStars = ({ stars, number, modal}) => (
   <Wrapper modal={modal}>

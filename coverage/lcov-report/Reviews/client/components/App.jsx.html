@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.11% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/18</span>
+                <span class='fraction'>21/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">64.29% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/9</span>
+                <span class='fraction'>9/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.33% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/15</span>
+                <span class='fraction'>16/20</span>
             </div>
         
             
@@ -142,16 +142,21 @@
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,6 +180,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -212,6 +218,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,17 +236,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable max-len */
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-&nbsp;
-import sampleData from './sampleData.js';
 import BodyStyle from './GlobalStyle.jsx';
-import MoreReviews from './MoreReviews.jsx';
-import OverallStars from './OverallStars.jsx';
-import StarsList from './StarsList.jsx';
-import ReviewList from './ReviewList.jsx';
-import Modal from './Modal.jsx';
+import sampleData from './sampleData.js';
+const Modal = lazy(()=&gt; import('./Modal.jsx'));
+const OverallStars = lazy(()=&gt; import('./OverallStars.jsx'));
+const MoreReviews = lazy(()=&gt; import('./MoreReviews.jsx'));
+const StarsList = lazy(()=&gt; import('./StarsList.jsx'));
+const ReviewList = lazy(()=&gt; import('./ReviewList.jsx'));
+&nbsp;
+&nbsp;
 &nbsp;
 const Wrapper = styled.div`
   padding: 48px 0px;
@@ -252,13 +261,14 @@ const Wrapper = styled.div`
   position: relative;
 `;
 &nbsp;
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       reviewsData: sampleData,
       loaded: false,
       showModal: false,
+      loading: false,
     };
     this.getRoomReviews = this.getRoomReviews.bind(this);
     this.handleShowModal = this.handleShowModal.bind(this);
@@ -266,7 +276,7 @@ class App extends React.Component {
   }
 &nbsp;
   componentDidMount() {
-    this.getRoomReviews(4);
+    this.getRoomReviews(5);
   }
 &nbsp;
   async getRoomReviews(id) {
@@ -295,17 +305,19 @@ class App extends React.Component {
 &nbsp;
   render() {
     // console.log('RENDER STATE', this.state);
-    const { reviewsData, loaded, showModal } = this.state;
+    const { reviewsData, loaded, showModal, sixReviews } = this.state;
     return (
       &lt;div&gt;
         &lt;BodyStyle modalOpened={showModal} /&gt;
-        &lt;Wrapper&gt;
-          {loaded ? &lt;Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/&gt; : null}
-          {loaded ? &lt;OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /&gt; : null}
-          {loaded ? &lt;StarsList stars={reviewsData.otherStars} /&gt; : null}
-          {loaded ? &lt;ReviewList reviews={reviewsData.reviews} /&gt; : null}
-          {loaded ? &lt;MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} /&gt; : null}
-        &lt;/Wrapper&gt;
+        &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+          &lt;Wrapper&gt;
+            &lt;Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/&gt;
+            &lt;OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /&gt;
+            &lt;StarsList stars={reviewsData.otherStars} /&gt;
+            &lt;ReviewList reviews={reviewsData.reviews} /&gt;
+            &lt;MoreReviews number={reviewsData.reviews.length} handleShowModal={this.handleShowModal} /&gt;
+          &lt;/Wrapper&gt;
+        &lt;/Suspense&gt;
       &lt;/div&gt;
     );
   }
@@ -319,7 +331,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jun 24 2020 23:18:23 GMT-0700 (Pacific Daylight Time)
+                at Fri Jun 26 2020 01:09:24 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

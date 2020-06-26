@@ -46,7 +46,7 @@ const getRandomRooms = (number = 1) => {
 };
 
 const randomRooms = getRandomRooms(100);
-const randomReviews = getRandomReviews(3000, randomRooms);
+const randomReviews = getRandomReviews(5000, randomRooms);
 
 module.exports = {
   getRandomRooms, getRandomReviews, randomRooms, randomReviews,

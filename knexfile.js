@@ -12,6 +12,7 @@ module.exports = {
       database: 'airbnb',
       port: 5432,
     },
+    debug: true,
     pool: {
       min: 2,
       max: 10,

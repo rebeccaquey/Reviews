@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense }from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
 import styled from 'styled-components';
+const App = lazy(()=> import('./components/App.jsx'));
+
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-`
+`;
 
-const Root = () => {
-  return (
-    <Wrapper>
+const Root = () => (
+  <Wrapper>
+    <Suspense fallback={<div>Loading...</div>}>
       <App />
-    </Wrapper>
-  );
-};
+    </Suspense>
+  </Wrapper>
+);
 
 ReactDOM.render(<Root />, document.getElementById('root'));
