@@ -1,9 +1,10 @@
-import React, {lazy, Suspense}from 'react';
+import React from 'react';
 
 import { ModalContainer, ModalBox, ModalBackground } from './ModalStyle.jsx';
 import ModalButton from './ModalButton.jsx';
 import TopBox from './ModalTop.jsx';
-const ModalContent = lazy(() => import('./ModalContent.jsx'));
+
+import ModalContent from './ModalContent.jsx';
 
 const Modal = ({ handleHideModal, showModal, data }) => {
   if (showModal === false) {
@@ -15,13 +16,11 @@ const Modal = ({ handleHideModal, showModal, data }) => {
         <ModalBox onClick={e => e.stopPropagation()}>
           <ModalButton handleHideModal={handleHideModal} />
           <TopBox />
-          <Suspense fallback={<div>Loading...</div>}>
-            <ModalContent data={data} />
-          </Suspense>
+          <ModalContent data={data} />
         </ModalBox>
       </ModalContainer>
     </ModalBackground>
   );
 };
 
-export default React.memo(Modal);
+export default Modal;

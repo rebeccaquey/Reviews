@@ -24,7 +24,7 @@ const Stars = ({ starName, rating, modal }) => {
 
       </StarContainer>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default React.memo(Stars);
+export default Stars;

@@ -1,11 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const ReviewList = lazy(() => import('./ReviewList.jsx'));
-// import OverallStars from './OverallStars.jsx';
-// import StarsList from './StarsList.jsx';
-const OverallStars = lazy(() => import('./OverallStars.jsx'));
-const StarsList = lazy(() => import('./StarsList.jsx'));
+import OverallStars from './OverallStars.jsx';
+import StarsList from './StarsList.jsx';
+import ReviewList from './ReviewList.jsx';
 
 const MainBox = styled.div`
   flex: 1 1 auto;
@@ -46,19 +44,15 @@ const ModalContent = ({ data }) => {
     <MainBox>
       <ContentBox>
         <AllStars>
-        <Suspense fallback={<div>Loading...</div>}>
           <OverallStars stars={data.overall} number={data.reviews.length} modal />
           <StarsList stars={data.otherStars} modal />
-        </Suspense>
         </AllStars>
         <AllReviews>
-          <Suspense fallback={<div>Loading...</div>}>
-            <ReviewList reviews={data.reviews} modal />
-          </Suspense>
+          <ReviewList reviews={data.reviews} modal />
         </AllReviews>
       </ContentBox>
     </MainBox>
   );
 };
 
-export default React.memo(ModalContent);
+export default ModalContent;
