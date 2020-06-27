@@ -25,12 +25,12 @@ const ReviewList = ({ reviews, modal }) => {
   return (
     <Wrapper modal={modal}>
       {frontReviews.map(el => (
-        <LazyLoad once overflow height={200}>
+        <LazyLoad once overflow height={200} throttle={200}>
           <Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />
         </LazyLoad>
       ))}
     </Wrapper>
   );
 };
-// throttle={300}
+
 export default ReviewList;
