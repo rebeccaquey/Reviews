@@ -1,11 +1,10 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import AirbnbFont from '../fonts/fonts.js';
 
 import {
   Wrapper, ReviewWrapper, Customer, ImageWrapper, NameDateWrapper, DateWrapper, Image,
 } from './ReviewStyle.jsx';
-
-const ReviewContent = lazy(() => import('./ReviewContent.jsx'));
+import ReviewContent from './ReviewContent.jsx';
 
 const Review = ({ review, modal, monthYear }) => {
   return (
@@ -23,16 +22,14 @@ const Review = ({ review, modal, monthYear }) => {
             </DateWrapper>
           </NameDateWrapper>
         </Customer>
-        <Suspense fallback={<div>Loading...</div>}>
-          <ReviewContent
-            content={review.content}
-            contentLength={review.content.length}
-            modal={modal}
-          />
-        </Suspense>
+        <ReviewContent
+          content={review.content}
+          contentLength={review.content.length}
+          modal={modal}
+        />
       </ReviewWrapper>
     </Wrapper>
   );
 };
 
-export default React.memo(Review);
+export default Review;

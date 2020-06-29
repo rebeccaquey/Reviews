@@ -3,7 +3,7 @@ import ReadMoreButton from './ReadMoreButton.jsx';
 
 import { Content, ExpandedText, Text } from './ReviewStyle.jsx';
 
-class ReviewContent extends React.PureComponent {
+class ReviewContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,6 +37,6 @@ class ReviewContent extends React.PureComponent {
       </Content>
     );
   }
-};
+}
 
 export default ReviewContent;

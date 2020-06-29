@@ -10,10 +10,6 @@ module.exports = {
     path: PUBLIC_DIR,
   },
   mode: 'development',
-  devtool: true,
-  performance: {
-    hints: 'warning',
-  },
   module: {
     rules: [
       {

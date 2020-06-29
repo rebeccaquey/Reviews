@@ -63,6 +63,7 @@
     "styled-components": "^5.1.1"
   },
   "eslintConfig": {
+    "root": true,
     "extends": "airbnb",
     "env": {
       "es6": true,

@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-const Stars = lazy(() => import('./Stars.jsx'));
+
+import Stars from './Stars.jsx';
 
 const Wrapper = styled.div`
   margin-bottom: 24px;
@@ -21,13 +22,11 @@ const StarsList = ({ stars, modal }) => {
   ];
   return (
     <Wrapper modal={modal}>
-      <Suspense fallback={<div>Loading...</div>}>
-        {starNames.map((element, index) => (
-          <Stars modal={modal} key={element} starName={element} rating={ratings[index]} />
-        ))}
-      </Suspense>
+      {starNames.map((element, index) => (
+        <Stars modal={modal} key={element} starName={element} rating={ratings[index]} />
+      ))}
     </Wrapper>
   );
 };
 
-export default React.memo(StarsList);
+export default StarsList;

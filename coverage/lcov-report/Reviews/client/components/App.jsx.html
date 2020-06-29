@@ -144,9 +144,8 @@
 <a name='L85'></a><a href='#L85'>85</a>
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,7 +156,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -176,8 +174,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -241,12 +237,12 @@ import axios from 'axios';
 import styled from 'styled-components';
 import BodyStyle from './GlobalStyle.jsx';
 import sampleData from './sampleData.js';
-const Modal = lazy(()=&gt; import('./Modal.jsx'));
-const OverallStars = lazy(()=&gt; import('./OverallStars.jsx'));
-const MoreReviews = lazy(()=&gt; import('./MoreReviews.jsx'));
-const StarsList = lazy(()=&gt; import('./StarsList.jsx'));
-const ReviewList = lazy(()=&gt; import('./ReviewList.jsx'));
 &nbsp;
+const Modal = lazy(() =&gt; import('./Modal.jsx'));
+const OverallStars = lazy(() =&gt; import('./OverallStars.jsx'));
+const MoreReviews = lazy(() =&gt; import('./MoreReviews.jsx'));
+const StarsList = lazy(() =&gt; import('./StarsList.jsx'));
+const ReviewList = lazy(() =&gt; import('./ReviewList.jsx'));
 &nbsp;
 &nbsp;
 const Wrapper = styled.div`
@@ -266,9 +262,7 @@ class App extends React.PureComponent {
     super(props);
     this.state = {
       reviewsData: sampleData,
-      loaded: false,
       showModal: false,
-      loading: false,
     };
     this.getRoomReviews = this.getRoomReviews.bind(this);
     this.handleShowModal = this.handleShowModal.bind(this);
@@ -284,9 +278,9 @@ class App extends React.PureComponent {
       const response = await axios.get(`/rooms/${id}/reviews`);
 <span class="cstat-no" title="statement not covered" >      this.setState(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
         reviewsData: response.data,
-        loaded: true,
       }));
     } catch (err) {
+      // eslint-disable-next-line no-console
 <span class="cstat-no" title="statement not covered" >      console.log(err);</span>
     }
   }
@@ -294,24 +288,24 @@ class App extends React.PureComponent {
 <span class="fstat-no" title="function not covered" >  ha</span>ndleShowModal() {
 <span class="cstat-no" title="statement not covered" >    this.setState(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
       showModal: true,
-    }), console.log('SHOW MODAL'));
+    }));
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  ha</span>ndleHideModal() {
 <span class="cstat-no" title="statement not covered" >    this.setState(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
       showModal: false,
-    }), console.log('HIDE MODAL'));
+    }));
   }
 &nbsp;
   render() {
     // console.log('RENDER STATE', this.state);
-    const { reviewsData, loaded, showModal, sixReviews } = this.state;
+    const { reviewsData, showModal } = this.state;
     return (
       &lt;div&gt;
         &lt;BodyStyle modalOpened={showModal} /&gt;
         &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
           &lt;Wrapper&gt;
-            &lt;Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData}/&gt;
+            &lt;Modal handleHideModal={this.handleHideModal} showModal={showModal} data={reviewsData} /&gt;
             &lt;OverallStars stars={reviewsData.overall} number={reviewsData.reviews.length} /&gt;
             &lt;StarsList stars={reviewsData.otherStars} /&gt;
             &lt;ReviewList reviews={reviewsData.reviews} /&gt;
@@ -331,7 +325,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jun 26 2020 01:09:24 GMT-0700 (Pacific Daylight Time)
+                at Fri Jun 26 2020 13:19:15 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
