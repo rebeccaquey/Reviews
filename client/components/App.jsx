@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import BodyStyle from './GlobalStyle.jsx';
-import sampleData from './sampleData.js';
+
 import MoreReviews from './MoreReviews.jsx';
 import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
