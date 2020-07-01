@@ -42,7 +42,7 @@ class App extends React.Component {
 
   async getRoomReviews(id) {
     try {
-      const response = await axios.get(`http://localhost:3009/rooms/${id}/reviews`);
+      const response = await axios.get(`http://localhost:3009/reviews/${id}`);
       this.setState(() => ({
         reviewsData: response.data,
         loaded: true,
