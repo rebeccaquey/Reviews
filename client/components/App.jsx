@@ -36,7 +36,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getRoomReviews(5);
+    const roomId = Math.floor(Math.random() * 99) + 1;
+    this.getRoomReviews(roomId);
   }
 
   async getRoomReviews(id) {
