@@ -10,7 +10,6 @@ import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
 
-
 const Wrapper = styled.div`
   padding: 48px 0px;
   max-width: 1120px;
